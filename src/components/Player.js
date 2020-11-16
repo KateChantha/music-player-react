@@ -31,6 +31,17 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
     setSongInfo({...songInfo, currentTime, duration});
   }
 
+  const dragSlideBarHandler = (e) => {
+    // update the dudio
+    audioRef.current.currentTime = e.target.value;
+    // update sliderbar value
+    setSongInfo({
+      ...songInfo,
+      currentTime: e.target.value
+    })
+  }
+
+  // Helper functions
   const formatTime = (time) => {
     return (
       // minuite : left from everytime it go up to 60s
@@ -47,6 +58,7 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
           min={0}
           max={songInfo.duration}
           value={songInfo.currentTime}
+          onChange={dragSlideBarHandler}
         />
         <p>{formatTime(songInfo.duration)}</p>
       </div>
