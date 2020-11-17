@@ -46,6 +46,12 @@
   background: lightblue;
 }
 
+// toggle to show library
+.active-library {
+  transform: translateX(0%);
+  opacity: 1;
+}
+
 /* SCROLL BAR */
 /* The emerging W3C standard
    that is currently Firefox-only */
