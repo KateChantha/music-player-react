@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faAngleLeft, faAngleRight, faPause } from "@fortawesome/free-solid-svg-icons";
 
+import { playAudio } from "../utils";
+
 const Player = ({ 
   audioRef, 
   currentSong, 
@@ -58,8 +60,9 @@ const Player = ({
     })
   }
 
-  // action: update currentIndex - loop back if end of list
-  // action: update active song 
+  // action: setCurrentSong by the update currentIndex - loop back if end of list
+  // omitted: update active song state (move in useEffect logic) 
+  // action: play song
   const skipTrackHandler = (direction) => {
     let currentIndex = songs.findIndex(song => song.id === currentSong.id) || 0;
 
@@ -70,10 +73,14 @@ const Player = ({
       // if index pass 0, set currentSong to the last song
       if ((currentIndex - 1) % songs.length < 0) {
         setCurrentSong(songs[songs.length -1])
+        playAudio(isPlaying, audioRef);
         return;
       }
       setCurrentSong(songs[(currentIndex - 1) % songs.length])
     }
+
+    // play song
+    playAudio(isPlaying, audioRef);
   }
 
   /** Helper functions **/
@@ -95,7 +102,7 @@ const Player = ({
           value={songInfo.currentTime}
           onChange={dragSlideBarHandler}
         />
-        <p>{formatTime(songInfo.duration) || 0}</p>
+        <p>{songInfo.duration ? formatTime(songInfo.duration) : "0:00" }</p>
       </div>
       <div className="play-control">
         <FontAwesomeIcon 
