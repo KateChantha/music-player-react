@@ -1,3 +1,5 @@
+import { playAudio } from "../utils";
+
 const LibrarySong = ({ audioRef, isPlaying, songs, setSongs, song, setCurrentSong }) => {
   const { cover, name, artist, id, active} = song;
 
@@ -5,40 +7,17 @@ const LibrarySong = ({ audioRef, isPlaying, songs, setSongs, song, setCurrentSon
   /**
    * @desc Event Handler
    * action: setCurrentSong
-   * action: update songs state with the update active state
+   * omitted: update songs state with the update active state (move logic to useEffect in <Player>)
    * action: audioRef.current.play()
    */
   const songSelectHandler = () => {
     setCurrentSong(song);
 
-    // Update Active State and Songs State
-    const newSongs = songs.map((song) => {
-      if (song.id === id) {
-        return {
-          ...song,
-          active: true,
-        };
-      } else {
-        return {
-          ...song,
-          active: false,
-        };
-      }
-    });
-    setSongs(newSongs);
-    
-    // pllay song if isPlaying and if the audioRef.current is already loaded
-    // check if the song is playing
-    if (isPlaying) {
-      const playPromise = audioRef.current.play();
-      if (playPromise !== undefined) {
-        // when its finally load's up, then play it
-        playPromise.then(() => {
-          audioRef.current.play()
-        })
-      }
-    }
-  }
+    // Update Active State (move logic to useEffect in <Player>)
+
+    // play song
+    playAudio(isPlaying, audioRef)
+  };
   
   return(
     <div 

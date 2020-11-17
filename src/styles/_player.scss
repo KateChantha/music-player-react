@@ -8,12 +8,14 @@
 
 .time-control {
   width: 50%;
-  // background: lightcoral;
   display: flex;
+  align-items: center;
 
   input {
     width: 100%;
-    padding: 1rem 0rem;
+    -webkit-appearance: none;
+    background: transparent;
+    cursor: pointer;
   }
 
   p {
@@ -31,4 +33,43 @@
   svg {
     cursor: pointer;
   }
+}
+
+
+/* CUSTOMIZE INPUT RANGE */
+
+input[type="range"]:focus {
+  outline-style: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  // background: black;
+}
+
+.track {
+  background: lightblue;
+  width: 100%;
+  height: 1rem;
+  position: relative;
+  border-radius: 1rem;
+
+  // hide any thing beyond flow
+  overflow: hidden;
+}
+
+// will go right on top of .tarck
+.animate-track {
+  background: rgb(204, 204, 204);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  // this will show as progress 
+  transform: translateX(0%);
+  // allow to grab the bar even it behind 
+  pointer-events: none;
 }
