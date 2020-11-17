@@ -39,11 +39,11 @@ const Player = ({ audioRef, currentSong, isPlaying, setIsPlaying, songInfo, setS
         <input 
           type="range" 
           min={0}
-          max={songInfo.duration}
+          max={songInfo.duration || 0}
           value={songInfo.currentTime}
           onChange={dragSlideBarHandler}
         />
-        <p>{formatTime(songInfo.duration)}</p>
+        <p>{formatTime(songInfo.duration) || 0}</p>
       </div>
 
       <div className="play-control">
