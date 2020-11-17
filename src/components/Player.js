@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faAngleLeft, faAngleRight, faPause } from "@fortawesome/free-solid-svg-icons";
 
@@ -9,8 +10,32 @@ const Player = ({
   setIsPlaying, 
   songInfo, 
   setSongInfo, 
-  songs 
+  songs,
+  setSongs 
   }) => {
+
+  /** useEffect **/
+  // skipSong Event cause currentSong state change
+  // useEffect runs evertime currentSong state change 
+  useEffect(() => {
+
+    // Update Active State and Songs State
+    const newSongs = songs.map((song) => {
+      if (song.id === currentSong.id) {
+        return {
+          ...song,
+          active: true,
+        };
+      } else {
+        return {
+          ...song,
+          active: false,
+        };
+      }
+    });
+
+    setSongs(newSongs);
+  }, [currentSong])
 
   /** Event Handlers **/
   const playSongHandler = () => {

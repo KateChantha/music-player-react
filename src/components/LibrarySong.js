@@ -5,27 +5,27 @@ const LibrarySong = ({ audioRef, isPlaying, songs, setSongs, song, setCurrentSon
   /**
    * @desc Event Handler
    * action: setCurrentSong
-   * action: update songs state with the update active state
+   * action: update songs state with the update active state // git taken care of in <Player> useEffect
    * action: audioRef.current.play()
    */
   const songSelectHandler = () => {
     setCurrentSong(song);
 
-    // Update Active State and Songs State
-    const newSongs = songs.map((song) => {
-      if (song.id === id) {
-        return {
-          ...song,
-          active: true,
-        };
-      } else {
-        return {
-          ...song,
-          active: false,
-        };
-      }
-    });
-    setSongs(newSongs);
+    // // Update Active State and Songs State
+    // const newSongs = songs.map((song) => {
+    //   if (song.id === id) {
+    //     return {
+    //       ...song,
+    //       active: true,
+    //     };
+    //   } else {
+    //     return {
+    //       ...song,
+    //       active: false,
+    //     };
+    //   }
+    // });
+    // setSongs(newSongs);
     
     // pllay song if isPlaying and if the audioRef.current is already loaded
     // check if the song is playing
