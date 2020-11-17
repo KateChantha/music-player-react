@@ -1,11 +1,12 @@
-import { useState, useRef } from "react"
+import { useState, useRef } from "react";
 
-import "./styles/app.scss"
-import data from "./data"
+import "./styles/app.scss";
+import data from "./data";
 
 import Player from './components/Player';
 import Song from './components/Song';
-import Library from "./components/Library"
+import Library from "./components/Library";
+import Nav from "./components/Nav";
 
 function App() {
   // Ref
@@ -29,7 +30,8 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="App">
+      <Nav />
       <Song currentSong={currentSong} />
       <Player 
         audioRef={audioRef}
