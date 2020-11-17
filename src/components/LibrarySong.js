@@ -1,9 +1,10 @@
-const LibrarySong = ({ songs, song, setCurrentSong }) => {
+const LibrarySong = ({ audioRef, songs, song, setCurrentSong }) => {
   const { cover, name, artist} = song;
 
   // Event Handler
   const songSelectHandler = () => {
     setCurrentSong(song);
+    audioRef.current.play()
   }
   
   return(
