@@ -23,7 +23,8 @@ h4 {
 }
 
 .library-active {
-  margin-left: 30%;
+  // the same used at .library width (_library.scss)
+  margin-left: 20rem;
 }
 
 @import "./library";
