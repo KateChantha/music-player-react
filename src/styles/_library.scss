@@ -21,7 +21,8 @@
   align-items: center;
   padding: 1rem 2rem 1rem 2rem;
   cursor: pointer;
- 
+  transition: background 0.6s ease;
+
   img {
     width: 30%;
   }
@@ -72,3 +73,9 @@
   border-radius: 20px;
   border: transparent;
 }  
+
+@media screen and (max-width: 768px) {
+  .library {
+    width: 100%;
+  }
+}
