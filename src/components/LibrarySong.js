@@ -12,9 +12,8 @@ const LibrarySong = ({ audioRef, isPlaying, songs, setSongs, song, setCurrentSon
    */
   const songSelectHandler = async () => {
     // wait until song is laoded
+    //  setCurrentSong- CurrentSong state change- will trigger useEffect in <Player> to run fucntion to update active state
     await setCurrentSong(song);
-
-    // Update Active State (move logic to useEffect in <Player>)
 
     // play song
     if (isPlaying) audioRef.current.play();
