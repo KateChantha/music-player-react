@@ -18,6 +18,15 @@ h4 {
   color: rgb(100, 100, 100);
 }
 
+.App {
+  transition: all 0.5s ease;
+}
+
+.library-active {
+  // the same used at .library width (_library.scss)
+  margin-left: 20rem;
+}
+
 @import "./library";
 @import "./nav";
 @import "./player";

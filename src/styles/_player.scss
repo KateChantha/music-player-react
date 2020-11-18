@@ -46,7 +46,12 @@ input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 16px;
   width: 16px;
-  // background: black;
+}
+
+input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  background: none;
+  border: none;
 }
 
 .track {
@@ -72,4 +77,14 @@ input[type="range"]::-webkit-slider-thumb {
   transform: translateX(0%);
   // allow to grab the bar even it behind 
   pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+  .time-control {
+    width: 90%;
+  }
+
+  .play-control {
+    width: 60%;
+  }
 }
