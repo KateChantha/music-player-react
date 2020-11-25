@@ -47,24 +47,39 @@ function App() {
     if (isPlaying) audioRef.current.play();
   };
 
+  // change background image
+  const {cover} = currentSong;
+  const sectionStyle = {
+    width: "100%",
+    backgroundImage: `url(${cover})`,
+    backgroundSize: "cover",
+    position: "center"
+  }
+  
+
   return (
     <div className={`App ${libraryStatus ? "library-active" : "" }`}>
-      <Nav 
+    <section className="outer-display" style={sectionStyle}>
+       <Nav 
         libraryStatus={libraryStatus} 
         setLibraryStatus={setLibraryStatus} 
       />
-      <Song currentSong={currentSong} isPlaying={isPlaying} />
-      <Player 
-        audioRef={audioRef}
-        currentSong={currentSong}
-        setCurrentSong={setCurrentSong}
-        isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
-        songInfo={songInfo}
-        setSongInfo={setSongInfo}
-        songs={songs}
-        setSongs={setSongs}
-      />
+      <section className="inner-display">
+        <Song currentSong={currentSong} isPlaying={isPlaying} />
+        <Player 
+          audioRef={audioRef}
+          currentSong={currentSong}
+          setCurrentSong={setCurrentSong}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+          songInfo={songInfo}
+          setSongInfo={setSongInfo}
+          songs={songs}
+          setSongs={setSongs}
+        />
+      </section>
+    </section>
+     
       <Library 
         audioRef={audioRef} 
         isPlaying={isPlaying}

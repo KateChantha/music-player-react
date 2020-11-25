@@ -4,7 +4,10 @@
   box-sizing: border-box;
 }
 
-h1, h2,h3 {
+h2, p {
+  color: #ffff;
+}
+h1,h3 {
   color: rgb(58, 58, 58);
 }
 
@@ -25,6 +28,36 @@ h4 {
 .library-active {
   // the same used at .library width (_library.scss)
   margin-left: 20rem;
+}
+
+.outer-display  {
+  // position: fixed;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+// .outer-display::before {
+//   content: "";
+//   background: pink;
+//   display: flex;
+//   width: 100%;
+//   height: 100vh;
+//   opacity: 0.5;
+// }
+
+.inner-display {
+  // position: absolute;
+  // left: 50%;
+  // top: 50%;
+  width: 40%;
+  height: 80%;
+  background-color: lightpink;
+  margin: auto;
+  min-width: 320px;
+  max-width: 440px;
+  border-radius: 1rem;
+  background: linear-gradient(0deg, rgba(8,34,34,1) 0%, rgba(0,1,1,0.6727065826330532) 100%);
 }
 
 @import "./library";
