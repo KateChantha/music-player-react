@@ -47,9 +47,19 @@ function App() {
     if (isPlaying) audioRef.current.play();
   };
 
+  // change background image
+  const {cover} = currentSong;
+  const sectionStyle = {
+    width: "100%",
+    backgroundImage: `url(${cover})`,
+    backgroundSize: "cover",
+    position: "center"
+  }
+  
+
   return (
     <div className={`App ${libraryStatus ? "library-active" : "" }`}>
-    <section className="outer-display">
+    <section className="outer-display" style={sectionStyle}>
        <Nav 
         libraryStatus={libraryStatus} 
         setLibraryStatus={setLibraryStatus} 
