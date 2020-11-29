@@ -59,11 +59,17 @@ function App() {
 
   return (
     <div className={`App ${libraryStatus ? "library-active" : "" }`}>
-    <section className="outer-display" style={sectionStyle}>
-       <Nav 
+    <div className="display-container">
+      <Nav 
         libraryStatus={libraryStatus} 
         setLibraryStatus={setLibraryStatus} 
       />
+      <section className="outer-display" style={sectionStyle}>
+        {/* <Nav 
+          libraryStatus={libraryStatus} 
+          setLibraryStatus={setLibraryStatus} 
+      /> */}
+      </section>
       <section className="inner-display">
         <Song currentSong={currentSong} isPlaying={isPlaying} />
         <Player 
@@ -78,8 +84,8 @@ function App() {
           setSongs={setSongs}
         />
       </section>
-    </section>
-     
+    
+    </div>
       <Library 
         audioRef={audioRef} 
         isPlaying={isPlaying}
